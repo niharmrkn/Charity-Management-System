@@ -1,5 +1,5 @@
 # Charity-Management-System
-A PHP Charity web application.
+Follow this steps to setup this site
 <ol>
   <li>To set this web application, make sure PHP and PHPMyAdmin is installed on your server.</li>
 <li>Next open PHPMyAdmin, create a database and import the charity.sql file. This will generate tables in your database on your server.</li>
