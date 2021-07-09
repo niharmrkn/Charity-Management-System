@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Add/Remove Photos</title>
+	<style>
+		body {
+		  	background-image: url('Donar_list.jpg');
+		  	background-repeat: no-repeat;
+		  	background-attachment: fixed;
+		  	background-size: 100% 100%;
+		}
+		.f2:hover{
+	        border: 2px solid black; 
+	        /*border-top-color: orange;*/
+	        background-color: gray;
+	        opacity:0.5;
+	    }
+	    .gallery img{
+	    	width:20%;
+	    	height: auto;
+	    	border-radius: 5px;
+	    	cursor: pointer;
+	    	transition: 0.3s;
+	    	margin: 5px;
+	    }
+	</style>
+
+</head>
+<body>
+	<script>
+           function goto()
+            {
+                location = 'NGO_homepage.php';
+            } 
+	</script>
+	<br>
+	<center><h2> Add Photos </h2></center>
+	<hr width='20%'>
+	<br>
+	<center>
+	<form action="add-remove_photo.php" method="POST" enctype="multipart/form-data">
+		<h4>	
+			Select Images :&emsp;&emsp;
+			<input  type='file' name='files'>
+			<input type="submit" name="submit" value="Upload">
+			<br><br><br>
+		</h4>
+	</form>
+	<button type='button' class='cancelbtn' onclick='goto()'>Back</button>
+	<br><br>			
+
+</body>
+</html>

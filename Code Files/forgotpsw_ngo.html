@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forget_Password_NGO</title>
+		<style>
+
+			body {
+			    background-repeat: no-repeat;
+			    background-attachment: fixed; 
+			    background-size: 100% 100%;
+			}
+
+			input[type=email], input[type=text] {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+			  	box-sizing: border-box;
+			}
+			input[type=submit]{
+				background-color: #4CAF50;
+				color: white;
+				padding: 14px 20px;
+				margin: 8px 0;
+				border: none;
+				cursor: pointer;
+				width: 100%;
+			}
+			input[type=submit]:hover{
+				opacity: 0.8;
+			}
+			button {
+				background-color: #4CAF50;
+				color: white;
+				padding: 14px 20px;
+				margin: 8px 0;
+				border: none;
+				cursor: pointer;
+				width: 100%;
+			}
+
+			button:hover {
+			  	opacity: 0.8;
+			}
+
+			.cancelbtn {
+			 	width: auto;
+				padding: 10px 18px;
+				background-color: #f44336;
+			}
+
+
+			.container {
+				width: 1000px;
+				margin-left: 150px;
+			  	padding: 50px;
+			}
+
+			span.psw {
+			    float: right;
+			    padding-top: 16px;
+			}
+
+			.shadow{
+				color:orange;
+				text-shadow: 1px 1px 5px black;
+				transition: transform .2s;
+			  	margin: 0 auto;
+			}
+
+			.shadow:hover {
+			    -webkit-transform: scale(2); /* Safari 3-8 */
+			    transform: scale(2); 
+			}
+
+		</style>
+</head>
+<body>
+	<br><br><br><br><br>
+<script>
+            function validatePassword(password) {
+                
+                // Do not show anything when the length of password is zero.
+                if (password.length === 0) {
+                    document.getElementById("msg").innerHTML = "";
+                    return;
+                }
+                // Create an array and push all possible values that you want in password
+                var matchedCase = new Array();
+                matchedCase.push("[$@$!%*#?&]"); // Special Charector
+                matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                matchedCase.push("[0-9]");      // Numbers
+                matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                // Check the conditions
+                var ctr = 0;
+                for (var i = 0; i < matchedCase.length; i++) {
+                    if (new RegExp(matchedCase[i]).test(password)) {
+                        ctr++;
+                    }
+                }
+                // Display it
+                var color = "";
+                var strength = "";
+                switch (ctr) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        strength = "Very Weak";
+                        color = "red";
+                        break;
+                    case 3:
+                        strength = "Medium";
+                        color = "orange";
+                        break;
+                    case 4:
+                        strength = "Strong";
+                        color = "green";
+                        break;
+                }
+                document.getElementById("msg").innerHTML = strength;
+                document.getElementById("msg").style.color = color;
+            }
+	function goto()
+	{
+		location = "NGO_login.html";
+	} 
+
+</script>
+
+	<center>
+		<form action="forgotpsw.php" method="POST">
+		  <legend><center><h1 style="color: red;" class="shadow">Reset Password</h1></center></legend>
+		  <table align="center" width="70%">
+		  	
+			  	<tr> <td> <label for="uemail"><b><br><br><br><br>Email</b></label> </td></tr>
+			  	<tr> <td> <input type="email" placeholder="Enter Email" name="uemail" required></td></tr>
+
+			  	<tr> <td> <label for="psw"><b>New Password</b></label></td></tr>
+			  	<tr> <td> <input type="text" placeholder="Enter New Password" name="psw" onkeyup="validatePassword(this.value)" required></td></tr>
+			  	<tr> <td><span id="msg"></span></td></tr>
+			  	
+			  	<tr> <td>  <input type="submit" name="submit2" value="Submit"> </td></tr>
+		  </table> <br>
+
+		  <table align="center" width="70%" style="background-color:#f1f1f1">
+		  		<tr> <td> <br> </td> </tr>
+		  		<tr> 
+		  			<td>
+		  				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		  				<button type="button" class="cancelbtn" onclick="goto()">Back</button> 
+		  			</td>
+		  		</tr>
+		  		<tr> <td> <br> </td> </tr>
+		  </table>
+		</form>
+	</center>
+
+</body>
+</html>

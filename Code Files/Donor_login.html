@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Donor Login</title>
+	<style>
+
+		body {
+		    background-repeat: no-repeat;
+		    background-attachment: fixed; 
+		    background-size: 100% 100%;
+		}
+
+		input[type=email], input[type=password] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+		  	box-sizing: border-box;
+		}
+
+		input[type=submit]{
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+		}
+
+		input[type=submit]:hover {
+		  	opacity: 0.8;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+		}
+
+		button:hover {
+		  	opacity: 0.8;
+		}
+
+
+		.cancelbtn {
+		 	width: auto;
+			padding: 10px 18px;
+			background-color: #f44336;
+		}
+
+
+		.container {
+			width: 1000px;
+			margin-left: 150px;
+		  	padding: 50px;
+		}
+
+		span.psw {
+		    float: right;
+		    padding-top: 16px;
+		}
+
+		.shadow{
+			color:orange;
+			text-shadow: 1px 1px 5px black;
+			transition: transform .2s;
+		  	margin: 0 auto;
+		}
+
+		.shadow:hover {
+		    -webkit-transform: scale(2); /* Safari 3-8 */
+		    transform: scale(2); 
+		}
+
+	</style>
+</head>
+
+<body style="background-image: url('donor_login.png')">
+<script>
+	function CheckPassword(inputtxt) 
+	{ 
+		var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+		if(inputtxt.value.match(decimal)) 
+		{ 
+		return true;
+		}
+		else
+		{ 
+		alert('Check a password between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.')
+		return false;
+		}
+	} 
+	function goto()
+	{
+		location = "HOME.html";
+	} 
+</script>
+
+	<br><br><br><br><br>
+
+	<center>
+		<form action="Donor_login.php" method="POST">
+		  <legend><center><h1 style="color: red;" class="shadow">Donor Login</h1></center></legend>
+		  <table align="center" width="70%">
+		  	
+			  	<tr> <td> <label for="uemail"><b><br><br><br><br>Email</b></label> </td></tr>
+			  	<tr> <td> <input type="email" placeholder="Enter Email" name="uemail" required></td></tr>
+
+			  	<tr> <td> <label for="psw"><b>Password</b></label></td></tr>
+			  	<tr> <td> <input type="password" placeholder="Enter Password" name="psw" required></td></tr>
+
+			  	<tr> <td> <input type="submit" name="submit" value="Login" onclick="CheckPassword(psw)"></td></tr>
+			    <tr> <td> <label> <input type="checkbox" checked="checked" name="remember"> Remember me</label> </td></tr>
+		  </table> <br>
+
+		  <table align="center" width="70%" style="background-color:#f1f1f1">
+		  		<tr> <td> <br> </td> </tr>
+		  		<tr> 
+		  			<td>
+		  				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		  				<button type="button" class="cancelbtn" onclick="goto()">Back</button> 
+		  				<span class="psw">Forgot <a href="forgotpse_donor.html">password?</a></span>
+		  			</td>
+		  		</tr>
+		  		<tr> <td> <br> </td> </tr>
+		  </table>
+		</form>
+	</center>
+
+</body>
+</html>

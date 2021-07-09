@@ -1,0 +1,266 @@
+<?php
+session_start();
+@$connect   = mysqli_connect("localhost","root","","charity") or die("couldn't connect!");
+
+echo "<!DOCTYPE html>
+<html>
+<head>
+  <title>NGO_homepage</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('NGO_homepage.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #3F3A39;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown_a {
+  float: right;
+}
+.dropdown .dropbtn{
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.gallery_a img{
+  width:250px;
+  height: 250px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 5px;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 40px;
+  /*height: 300px;*/
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+</style>
+
+
+</head>
+<body>
+<p align='center'><h1 align='middle'><b><u>National Relief Fund</u></b></h1></font></p>
+  <div class='navbar'>
+
+    <div class='dropdown'>
+      <button class='dropbtn'>Edit 
+        <i class='fa fa-caret-down'></i>
+      </button>
+      <div class='dropdown-content'>
+        <a href='add-remove_photo.php'>ADD/REMOVE Photos   </a>
+        <a href='add-remove_document.php'>ADD/REMOVE Documents</a>
+        <a href='Edit_description.php'>EDIT Description    </a>
+        <a href='Edit_contact_ngo.php'>EDIT Contact        </a>
+
+      </div>
+    </div> 
+
+    <div class='dropdown'>
+      <button class='dropbtn'>Donors
+        <i class='fa fa-caret-down'></i>
+      </button>
+      <div class='dropdown-content'>
+      <a href='NGO_donor.php'>Donors List</a>
+      </div>
+    </div> ";
+       echo "<div class='dropdown'>";
+      echo "<button class='dropbtn'><img src='download.png' height='15' width='15'>&emsp;".@$_SESSION['name']."<i class='fa fa-caret-down'></i></button>";  
+      echo  "<div class='dropdown-content'>
+          <a href='NGO_homepage.php'><img src='dashboard.png' height='20' width='20'>&emsp;Dashboard</a>
+          <a href='profile_ngo.php'><img src='download.png' height='30' width='30'>&emsp;Profile</a>
+          <a href='logout.php'><img src='logout.png' height='30' width='30'>&emsp;Logout</a>
+        </div>
+      </div></div>";
+
+  echo "
+
+    <br><br>
+    <center>
+      <div class='container'>
+      <h2>Photos</h2>
+      <div class='gallery_a'>";
+      @$t = $_SESSION['email'];
+      @$qu1 = mysqli_query($connect,"SELECT * FROM `ngo_pictures` WHERE `email` = '$t'");
+    while (@$row = mysqli_fetch_assoc(@$qu1)) 
+    {
+      @$id = $row['id'];
+      $url = 'uploaded_photos/'.$row['pictures'];
+      echo "<img src='".$url."'/>";
+    }     
+      echo "</div></div>
+    </center>
+
+    <br>
+
+    <center><h2>About Us</h2></center>
+  <center>
+    <br><br>
+    <table width='70%'>
+      <tr>
+        <td>
+          <ul><li>";
+          $t1 = $_SESSION['email'];
+          $length=2500;
+          @$query2 = mysqli_query($connect,"SELECT * FROM `ngo_details` WHERE `email`='$t1'");
+          while (@$row = mysqli_fetch_assoc(@$query2)) 
+          {
+            @$dbtname = $row['description'];
+          }
+          for ($i=0; $i < strlen($dbtname); $i++)
+          {
+            echo "".$dbtname[$i].""; 
+            if ($dbtname[$i]=='.' && $i < (strlen($dbtname)-1))
+            {
+              echo "</li><li>";
+            }
+            else if($i == (strlen($dbtname)-1))
+            {
+              echo "</li>";
+            }
+          }
+          echo "</ul>
+        </td>
+      </tr>
+
+    </table>";
+  $t = $_SESSION['email'];
+@$query1     = mysqli_query($connect,"SELECT * FROM `ngo_details` WHERE `email`='$t'");
+  while (@$row = mysqli_fetch_assoc(@$query1)) 
+  {
+
+    @$dbtname = $row['person_name'];
+    @$dbtemail = $row['temail'];
+    @$dbid1 = $row['id1'];
+    @$dbid2 = $row['id2'];
+    @$dbc1 = $row['c1'];
+    @$dbc2 = $row['c2'];
+    @$dbadd = $row['address'];
+  }
+
+    echo "<br><br>
+    <center><h2>Contact Us</h2></center>
+    <table width='70%'>
+      <tr>
+        <td width='20%'>
+          Trustee name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+        </td>
+        <td>".$dbtname."</td>
+      </tr>
+
+      <tr>
+        <td width='20%'>
+          <br>
+          Trustee Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+        </td>
+        <td>".$dbtemail."</td>
+      </tr>
+
+      <tr>
+        <td width='20%'>
+          <br>
+          NGO Email IDs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+        </td>
+        <td>".$dbid1."<br>".$dbid2."
+        </td>
+      </tr>
+
+      <tr>
+        <td width='20%'>
+          <br>
+          NGO Contact No. &nbsp;&nbsp;:
+        </td>
+        <td>".$dbc1."<br>".$dbc2."
+        </td>
+      </tr>
+
+      <tr>
+        <td width='20%'>
+          <br>
+          NGO Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+        </td>
+        <td>
+          <br>".$dbadd."
+        </td>
+      </tr>
+    </table>
+  </center>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+  <!-- <div style='width: 100px; height: 100px'> Hello </div> -->
+
+</body>
+</html>";
+
+?>

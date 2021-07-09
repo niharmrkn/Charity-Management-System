@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NGO_homepage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("NGO_homepage.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #3F3A39;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 400px;
+  /*height: 300px;*/
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+</style>
+
+
+</head>
+<body>
+<p align="center"><h1 align="middle"><b><u>National Relief Fund</u></b></h1></font></p>
+
+
+
+	<div class="navbar">
+
+	  <div class="dropdown">
+	    <button class="dropbtn">Edit 
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="">ADD/REMOVE Photos   </a>
+	      <a href="">ADD/REMOVE Documents</a>
+	      <a href="">EDIT Description    </a>
+	      <a href="">EDIT Contact        </a>
+
+	    </div>
+	  </div> 
+
+	  <div class="dropdown">
+	  	<a href="NGO_donor.php">Donors</a>
+	  </div> 
+	</div>
+
+  	<br><br>
+  	<center>
+  		<table style="width: 90%; height: 400px">
+  			<tr style="height: 10%">
+  				<td colspan="3">
+  					<h2>Photos</h2>
+  				</td>
+  			</tr>
+  			<tr>
+  				<td>
+  					<div class="gallery">
+					  	<a target="_blank" href="NGO_homepage1.jpg">
+					    	<img src="NGO_homepage1.jpg" alt="Cinque Terre" style="max-height: 100%; max-width: 100%">
+					  	</a>
+					  	<!-- <div class="desc">Add a description of the image here</div> -->
+					</div>
+  				</td>
+  				<td>
+  					<div class="gallery">
+					  	<a target="_blank" href="NGO_homepage2.jpg">
+					    	<img src="NGO_homepage2.jpg" alt="Cinque Terre" style="max-height: 100%; max-width: 100%">
+					  	</a>
+					  	<!-- <div class="desc">Add a description of the image here</div> -->
+					</div>
+  				</td>
+  				<td>
+  					<div class="gallery">
+					  	<a target="_blank" href="NGO_homepage3.jpg">
+					    	<img src="NGO_homepage3.jpg" alt="Cinque Terre" style="max-height: 100%; max-width: 100%">
+					  	</a>
+					  	<!-- <div class="desc">Add a description of the image here</div> -->
+					</div>
+  				</td>
+  			</tr>
+  		</table>
+  	</center>
+
+  	<br>
+
+
+	<center>
+		<br><br>
+		<table width="70%">
+			<tr>
+				<td>
+					<h2>About Us</h2>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<ul>
+						<li>
+							National Relief Fund (NRF) was established entirely with public contributions and does not get any budgetary support.
+						</li>
+						<li>
+							NRF accepts voluntary contributions from Individuals, Organizations, Trusts, Companies and Institutions etc.
+						</li>
+						<li>
+							The resources of the NRF are utilized to render immediate relief to families of those killed in natural calamities like floods, cyclones and earthquakes, etc.
+						</li>
+						<li>
+							Assists partially to defray the expenses for medical treatment like heart surgery, kidney transplantation, cancer treatment of needy people and acid attack etc.
+						</li>
+					</ul>
+				</td>
+			</tr>
+
+		</table>
+
+		<br><br>
+		<table width="70%">
+			<tr>
+				<td>
+					<h2>Contact Us</h2>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="20%">
+					Trustee name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+				</td>
+				<td>
+					XYZ
+				</td>
+			</tr>
+
+			<tr>
+				<td width="20%">
+					<br>
+					Trustee Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+				</td>
+				<td>
+					XYZ@gmail.com
+				</td>
+			</tr>
+
+			<tr>
+				<td width="20%">
+					<br>
+					NGO Email IDs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+				</td>
+				<td>
+					XYZ@gmail.com <br>
+					PQR@gmail.com
+				</td>
+			</tr>
+
+			<tr>
+				<td width="20%">
+					<br>
+					NGO Contact No. &nbsp;&nbsp;:
+				</td>
+				<td>
+					ABCDEFGHIJ <br>
+					ABCDEFGHIJ
+				</td>
+			</tr>
+
+			<tr>
+				<td width="20%">
+					<br>
+					NGO Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+				</td>
+				<td>
+					<br>
+					XYZ
+				</td>
+			</tr>
+		</table>
+	</center>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
+	<!-- <div style="width: 100px; height: 100px"> Hello </div> -->
+
+</body>
+</html>
