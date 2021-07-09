@@ -1,6 +1,6 @@
 # Charity-Management-System
 A PHP Charity web application.
-
+<ol>
 To set this web application, make sure PHP and PHPMyAdmin is installed on your server.
 Next open PHPMyAdmin, create a database and import the charity.sql file. This will generate tables in your database on your server.
 Upload all files on your server except for charirt.sql!
@@ -9,7 +9,7 @@ Open HOME.php file and add the details of your PHPMyAdmin's id and password to a
 Once this is done, go to the url of your website and it should be up and running.
 Problem Statement
 The majority of NGOs have experienced difficules in geng funds or other required things. Geng donors is a very hard task and somemes dealing with some donor’s condion can be a big challenge for NGOs fulfils it. And currently there is no system which connects all NGOs at one place. With the convenonal media means such as radio, newspaper or television adversements somemes, no donors will reach needy NGOs who are really working for poor peoples. The records of the donor might not be kept safely and there might be missing of the donor's record due to human error or disasters and donors do not know whether it’s secure or not.
-
+</ol>
 Modules
 Login & Logout:- This module is used by admin , NGO and donors they can login in their respective profiles by using their login credentials.
 Register:- This module is used by NGO and donors they can register on site.
